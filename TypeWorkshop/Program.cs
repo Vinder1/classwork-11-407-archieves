@@ -17,5 +17,7 @@ class Program
         Console.WriteLine("Курс         | " + course);
         Console.WriteLine("Группа       | " + group);
         Console.WriteLine("Есть питомец | " + hasPet);
+        Console.WriteLine("Есть питомец | " + hasPet);
+        Console.WriteLine("Есть питомец | " + hasPet);
     }
 }
