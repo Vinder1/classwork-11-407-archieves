@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeWorkshop", "TypeWorkshop\TypeWorkshop.csproj", "{2F812498-EA1A-4832-9F63-AB8969B1FE5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "loops", "loops\loops.csproj", "{90926A63-85E3-47D9-BDFE-0BEFFDE86B2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{2F812498-EA1A-4832-9F63-AB8969B1FE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F812498-EA1A-4832-9F63-AB8969B1FE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F812498-EA1A-4832-9F63-AB8969B1FE5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90926A63-85E3-47D9-BDFE-0BEFFDE86B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90926A63-85E3-47D9-BDFE-0BEFFDE86B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90926A63-85E3-47D9-BDFE-0BEFFDE86B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90926A63-85E3-47D9-BDFE-0BEFFDE86B2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
