@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Algo.PQSecondTest-20250411-231047</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.26100.3775)
+12th Gen Intel Core i7-12700H, 1 CPU, 20 logical and 14 physical cores
+.NET SDK 8.0.408
+  [Host]     : .NET 8.0.15 (8.0.1525.16413), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.15 (8.0.1525.16413), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method                           </th><th>Mean  </th><th>Error</th><th>StdDev</th>
+</tr>
+</thead><tbody><tr><td>MyPriorityQueueAdd1000</td><td>24.52 &mu;s</td><td>0.147 &mu;s</td><td>0.130 &mu;s</td>
+</tr><tr><td>BuiltInPriorityQueueAdd1000</td><td>11.06 &mu;s</td><td>0.075 &mu;s</td><td>0.071 &mu;s</td>
+</tr><tr><td>MyPriorityQueueAdd100_000</td><td>3,605.96 &mu;s</td><td>12.661 &mu;s</td><td>11.843 &mu;s</td>
+</tr><tr><td>BuiltInPriorityQueueAdd100_000</td><td>1,535.82 &mu;s</td><td>11.538 &mu;s</td><td>10.793 &mu;s</td>
+</tr><tr><td>MyPriorityQueueAddAndRemove1000</td><td>110.86 &mu;s</td><td>0.402 &mu;s</td><td>0.376 &mu;s</td>
+</tr><tr><td>BuiltInPriorityQueueAddAndRemove1000</td><td>63.58 &mu;s</td><td>0.669 &mu;s</td><td>0.626 &mu;s</td>
+</tr><tr><td>MyPriorityQueueAddAndRemove100_000</td><td>26,065.46 &mu;s</td><td>121.455 &mu;s</td><td>107.667 &mu;s</td>
+</tr><tr><td>BuiltInPriorityQueueAddAndRemove100_000</td><td>10,648.50 &mu;s</td><td>55.210 &mu;s</td><td>51.643 &mu;s</td>
+</tr></tbody></table>
+</body>
+</html>

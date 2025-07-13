@@ -1,0 +1,7 @@
+// Validating benchmarks:
+// Benchmark LPATest.LpaStarTest: DefaultJob [N=1000]
+//    * Benchmarked method `LpaStarTest` is static. Benchmarks MUST be instance methods, static methods are not supported.
+
+// Benchmark LPATest.AStarTest: DefaultJob [N=1000]
+//    * Benchmarked method `AStarTest` is static. Benchmarks MUST be instance methods, static methods are not supported.
+
