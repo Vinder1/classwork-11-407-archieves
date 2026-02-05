@@ -1,0 +1,148 @@
+body {
+    background-image: url('image/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dialog-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.dialog-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: yellow;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin: 5px;
+    padding: 10px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.text-box {
+    width: 700px;
+}
+
+.vertical-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.box-item {
+    margin: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+}
+
+.btn {
+    background-color: #00b850;
+    color: black;
+    border: none;
+    border: 1px solid rgb(89, 89, 89);
+    border-radius: 12px;
+    padding: 10px 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+.btn:hover {
+    background-color: #0dcd30;
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(74, 144, 226, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.holiday-text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.5;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.holiday-text:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scale-on-hover:hover {
+    transform: scale(1.02);
+}
+
+.left-links {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.corner-icon {
+    margin: 10px;
+    width: auto;
+    height: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.holiday-article {
+    text-align: center;
+    width: 200px;
+    height: 120px;
+    padding: 8px;
+    margin: 8px 0;
+    line-height: 1.2;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.holiday-article h3 {
+    font-size: 16px;
+    margin: 4px 0;
+}
+
+.holiday-edit-btn {
+    background-color: #00b850;
+    color: black;
+    border: none;
+    border: 1px solid rgb(89, 89, 89);
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}

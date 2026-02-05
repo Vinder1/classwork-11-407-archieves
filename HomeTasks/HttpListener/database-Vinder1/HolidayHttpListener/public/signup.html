@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="http://localhost:5000/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Регистрация</title>
+</head>
+
+<body>
+    <nav class="left-links">
+        <!-- js-generated links -->
+        <script type="module" src="js/navbar.js"></script>
+    </nav>
+
+    <div class="dialog-window">
+        <div class="dialog-box">
+            <h3> Регистрация </h3>
+            <form class="vertical-box" action="signup" method="post" id="sign-up">
+                <label class="box-item" for="input-login"> Логин</label>
+                <input class="box-item" id="input-login" type="text" name="login" />
+
+                <label class="box-item" for="input-name"> Имя</label>
+                <input class="box-item" id="input-name" type="text" name="name" required />
+
+                <label class="box-item" for="input-password"> Пароль</label>
+                <input class="box-item" id="input-password" type="password" name="password" />
+
+                <input class="box-item btn" type="submit" value="Зарегистрироваться" />
+            </form>
+        </div>
+    </div>
+</body>
+<script type="module" src="js/signup.js"></script>
+
+</html>

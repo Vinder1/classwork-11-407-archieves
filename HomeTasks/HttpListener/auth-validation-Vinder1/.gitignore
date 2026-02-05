@@ -1,0 +1,7 @@
+**/bin/
+**/obj/
+.vs
+.vscode
+requests.http
+**/db_connect.json
+**/config.json

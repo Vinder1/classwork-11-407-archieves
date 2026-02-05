@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="http://localhost:5000/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="amber.css" />
+    <link rel="stylesheet" href="auth-overlay.css" />
+    <title>Amber</title>
+</head>
+
+<body>
+    <main>
+        <div class="dialog-window home-page">
+            <div class="dialog-window width-half-screen">
+                <img src="favicon.ico" alt="Amber logo" class="fade-in" style="width: 300px; height: auto;" />
+            </div>
+            <div class="dialog-window width-half-screen">
+                <section class="vertical-box">
+                    <h1 class="logo-text" >A M B E R</h1>
+                    <!-- <div class="dialog-box fade-in-fast" style="background-color: #111;"> -->
+                    <p class="subtitle">Онлайн редактор кода</p>
+                    <div>
+                        <button id="showModalBtn" class="login-btn"> Войти </button>
+                        <a href="signup" aria-label="Зарегистрироваться">
+                            <button class="login-btn"> Зарегистрироваться </button>
+                        </a>
+                    </div>
+                    <!-- </div> -->
+                </section>
+            </div>
+        </div>
+        <div class="dialog-window description-page vertical-box">
+            <div class="features-list">
+                <p class="feature-item">> 📁 Запихивайте сюда свои файлы</p>
+                <p class="feature-item">> ▶️ Запускайте их прямо тут</p>
+                <p class="feature-item">> 🚀 И они, омагад, запускаются на сервере!</p>
+
+                <p class="feature-item">> 🔗 Делитесь своими наработками с другими пользователями!</p>
+                <p class="feature-item">> 💻 Работайте на нескольких устройствах!</p>
+                <p class="feature-item highlight">> 🎁 И всё БЕСПЛАТНО!</p>
+                <div class="papich-image">
+                    <img src="image/papich_FREE.jpg" alt="БЕСПЛАТНО" />
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>все права зарегистрированы, кто будет абузить систему или хоть что-то сворует - я вас найду и расчленю</footer>
+
+    <!-- overlay -->
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <button class="close-btn" id="closeModalBtn">&times;</button>
+            <h2>Вход</h2>
+            <form action="signin" method="post" id="sign-in">
+                <input id="input-login" type="text" name="login" placeholder="Логин"/>
+                <input id="input-password" type="password" name="password" placeholder="Пароль"/>
+                <button type="submit" id="action-btn">Войти</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="module" src="js/amber-signup.js"></script>
+<script type="module" src="js/signin.js"></script>
+
+</html>

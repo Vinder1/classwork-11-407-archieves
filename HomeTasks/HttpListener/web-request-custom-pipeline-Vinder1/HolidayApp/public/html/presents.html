@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="http://localhost:5000/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common.css" />
+    <link rel="stylesheet" href="holiday.css" />
+    <title>Профиль</title>
+</head>
+
+<body>
+    <nav class="left-links">
+        <a href="home" aria-label="К главной странице" class="scale-on-hover">
+            <img src="image/home.png" alt="К главной странице" class="corner-icon">
+        </a>
+        <a href="contact" aria-label="Контакты" class="scale-on-hover">
+            <img src="image/contact.png" alt="Контакты" class="corner-icon">
+        </a>
+        <a href="about" aria-label="О проекте" class="scale-on-hover">
+            <img src="image/help.png" alt="О проекте" class="corner-icon">
+        </a>
+        <a href="signup" aria-label="Зарегистрироваться" id="signup-ref" class="scale-on-hover">
+            <img src="image/signup.png" alt="Зарегистрироваться" class="corner-icon">
+        </a>
+        <a href="profile" aria-label="Профиль" id="profile-ref" class="scale-on-hover">
+            <img src="image/profile.png"
+                alt="Профиль" class="corner-icon"></a>
+        <a href="holidays" aria-label="Мои праздники" id="holidays-ref" class="scale-on-hover">
+            <img src="image/post.png" alt="Мои праздники"
+                class="corner-icon">
+        </a>
+        <a href="presents" aria-label="Мои подарки" id="presents-ref" class="scale-on-hover">
+            <img src="image/present.png" alt="Мои подарки" class="corner-icon">
+        </a>
+    </nav>
+
+    <div class="dialog-window">
+        <div class="dialog-box fade-in-fast" id="list-box">
+        </div>
+        <div class="dialog-box fade-in-fast">
+            <p> Баланс: <span id="balance"></span></p>
+            <a href="presents/new"> Отправить новый </a>
+        </div>
+    </div>
+    <script type="module" src="js/presentsList.js"></script>
+</body>
+
+</html>

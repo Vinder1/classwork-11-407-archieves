@@ -1,0 +1,6 @@
+**/bin/
+**/obj/
+.vs
+.vscode
+requests.http
+HolidayHttpListener/db_connect.json
