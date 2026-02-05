@@ -1,0 +1,63 @@
+GET http://localhost:5000/
+###
+POST http://localhost:5000/user HTTP/1.1
+content-type: application/json
+
+{
+    "login": "teacher1",
+    "password": "aaa12345678",
+    "role": "Teacher",
+    "fullName": "ИванИваныч"
+}
+###
+POST http://localhost:5000/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "login": "teacher1",
+    "password": "aaa12345678"
+}
+###
+GET http://localhost:5000/tests
+###
+POST http://localhost:5000/tests HTTP/1.1
+content-type: application/json
+
+{
+    "title": "test1",
+    "description": "lalala",
+    "authorId": 1
+}
+###
+GET http://localhost:5000/tests/1/questions
+###
+POST http://localhost:5000/tests/questions HTTP/1.1
+content-type: application/json
+
+{
+    "testId": 1,
+    "text": "lalala",
+    "correctAnswer": "tralala"
+}
+###
+GET http://localhost:5000/tests/1/answers
+###
+POST http://localhost:5000/tests/1/answers HTTP/1.1
+content-type: application/json
+
+{
+    "questionId": 1,
+    "studentId": 1,
+    "givenAnswer": "no tralala"
+}
+###
+POST http://localhost:5000/tests/1/answers HTTP/1.1
+content-type: application/json
+
+{
+    "questionId": 1,
+    "studentId": 1,
+    "givenAnswer": "no tralala"
+}
+###
+GET http://localhost:5000/results/teacher

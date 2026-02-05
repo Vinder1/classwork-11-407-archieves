@@ -1,0 +1,3 @@
+{
+    "DbConnection" : "Host=localhost;Username=postgres;Password=9492;Database=control_work"
+}
