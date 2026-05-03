@@ -1,0 +1,9 @@
+**/bin/
+**/obj/
+**/data/
+**/TestResults/
+**/.vscode
+**/appsettings.Development.json
+
+**/logs/
+**/.env

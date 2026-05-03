@@ -1,0 +1,86 @@
+GET http://localhost:5085/
+###
+GET https://localhost:5086/
+###
+# POST http://localhost:5086/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Aboba",
+#     "price": 1111,
+#     "type": "Person"
+# }
+###
+GET https://localhost:5086/stars/all/
+###
+GET https://localhost:5086/stars/nearby?radius=1&angleMilliradians=1721&range=2
+###
+GET https://localhost:5086/stars/find?radius=1&angleMilliradians=1721
+###
+POST https://localhost:5086/galaxy/regenerate/
+###
+GET https://localhost:5086/galaxy/
+###
+###
+###
+POST https://localhost:5086/player/new HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Pasha"
+}
+###
+GET https://localhost:5086/player?id=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+POST https://localhost:5086/player/new-name HTTP/1.1
+content-type: application/json
+
+{
+    "id": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792",
+    "name": "Pasha2"
+}
+###
+DELETE https://localhost:5086/player?id=78d3425e-a0b8-4148-8b62-968584b94575
+###
+GET https://localhost:5086/player/exists?id=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+###
+###
+POST https://localhost:5086/spaceship/create HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792"
+}
+###
+GET https://localhost:5086/spaceship/find?owner=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+GET https://localhost:5086/spaceship/all
+###
+POST https://localhost:5086/spaceship/move HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792",
+    "newRadius": 1,
+    "newAngle": 1721
+}
+###
+GET https://localhost:5086/spaceship/has-active?owner=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+DELETE https://localhost:5086/spaceship/clean
+###
+###
+###
+GET https://localhost:5086/star-visit/exists-active?ownerId=f94f69c9-f3dd-49b6-98e9-5cb5bd724792&radius=1&angleMilliradians=1721
+###
+GET https://localhost:5086/star-visit/active?ownerId=f94f69c9-f3dd-49b6-98e9-5cb5bd724792&radius=1&angleMilliradians=1721
+###
+POST https://localhost:5086/star-visit/create HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792",
+    "radius": 1,
+    "angleMilliradians": 1721
+}

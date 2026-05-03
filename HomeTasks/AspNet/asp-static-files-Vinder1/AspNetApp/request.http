@@ -1,0 +1,12 @@
+GET http://localhost:5085/
+###
+GET https://localhost:5086/
+###
+POST http://localhost:5086/ HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Aboba",
+    "price": 1111,
+    "type": "Person"
+}

@@ -1,0 +1,145 @@
+sing System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Emerald;
+using Emerald.Exceptions;
+using HolidayApp.Dto;
+using HolidayApp.Entities;
+using Microsoft.IdentityModel.Tokens;
+
+namespace HolidayApp.Services;
+
+public class JwtAuth
+{
+    private string SecretKey { get; init; }
+
+    public JwtAuth(Configuration config)
+    {
+        if (config.TryGetString("SecretKey", out var secretKey))
+        {
+            SecretKey = secretKey;
+        }
+        else
+        {
+            throw new InitializationException("В config.json не найдена строка SecretKey");
+        }
+    }
+    #region Jwt Token
+    public string GenerateJwtToken(int id)
+    {
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
+        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+        var claims = new[]
+        {
+            new Claim("sub", id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        };
+
+        var token = new JwtSecurityToken(
+            issuer: "localhost:5000",
+            audience: "localhost:5000",
+            claims: claims,
+            notBefore: DateTime.UtcNow,
+            expires: DateTime.UtcNow.AddMinutes(30),
+            signingCredentials: credentials);
+
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    public (bool isSuccess, int? id) ValidateJwtToken(string? token)
+    {
+        if (token == null)
+        {
+            return (false, default);
+        }
+
+        var tokenHandler = new JwtSecurityTokenHandler();
+
+        tokenHandler.InboundClaimTypeMap.Clear();
+
+        var validationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "localhost:5000",
+            ValidAudience = "localhost:5000",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey)),
+            ClockSkew = TimeSpan.FromMinutes(2) // ⏱ допускаем разницу системных часов
+        };
+
+        try
+        {
+            var claimsPrincipal = tokenHandler.ValidateToken(token, validationParameters, out SecurityToken _);
+            var userId = claimsPrincipal.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value;
+            return (true, int.Parse(userId));
+        }
+        catch
+        {
+            return (false, default);
+        }
+    }
+
+    #endregion
+    
+    #region Refresh token
+    public string GenerateRefreshToken(int id)
+    {
+        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
+        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+        var claims = new[]
+        {
+            new Claim("sub", id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+        };
+
+        var token = new JwtSecurityToken(
+            issuer: "localhost:5000",
+            audience: "localhost:5000",
+            claims: claims,
+            notBefore: DateTime.UtcNow,
+            expires: DateTime.UtcNow.AddDays(14),
+            signingCredentials: credentials);
+
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    public (bool isSuccess, int? id) ValidateRefreshToken(string? token)
+    {
+        if (token == null)
+        {
+            return (false, default);
+        }
+
+        var tokenHandler = new JwtSecurityTokenHandler();
+
+        tokenHandler.InboundClaimTypeMap.Clear();
+
+        var validationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = "localhost:5000",
+            ValidAudience = "localhost:5000",
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey)),
+            ClockSkew = TimeSpan.FromMinutes(2) // ⏱ допускаем разницу системных часов
+        };
+
+        try
+        {
+            var claimsPrincipal = tokenHandler.ValidateToken(token, validationParameters, out SecurityToken _);
+            var userId = claimsPrincipal.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value;
+            return (true, int.Parse(userId));
+        }
+        catch
+        {
+            return (false, default);
+        }
+    }
+    #endregion
+}

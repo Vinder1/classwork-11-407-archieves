@@ -1,0 +1,71 @@
+GET http://localhost:5085/
+###
+GET https://localhost:5086/
+###
+# POST http://localhost:5086/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Aboba",
+#     "price": 1111,
+#     "type": "Person"
+# }
+###
+GET https://localhost:5086/stars/all/
+###
+GET https://localhost:5086/stars/nearby?radius=1&angle=2.200439721067765&range=2
+###
+GET https://localhost:5086/stars/find?radius=1&angle=2.200439721067765
+###
+POST https://localhost:5086/galaxy/regenerate/
+###
+GET https://localhost:5086/galaxy/
+###
+###
+###
+POST https://localhost:5086/player/new HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Pasha"
+}
+###
+GET https://localhost:5086/player?id=70dd7ea1-2def-4b28-af01-7debe3cb194b
+###
+POST https://localhost:5086/player/new-name HTTP/1.1
+content-type: application/json
+
+{
+    "id": "70dd7ea1-2def-4b28-af01-7debe3cb194b",
+    "name": "Pasha2"
+}
+###
+DELETE https://localhost:5086/player?id=78d3425e-a0b8-4148-8b62-968584b94575
+###
+GET https://localhost:5086/player/exists?id=70dd7ea1-2def-4b28-af01-7debe3cb194b
+###
+###
+###
+POST https://localhost:5086/spaceship/create HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "70dd7ea1-2def-4b28-af01-7debe3cb194b"
+}
+###
+GET https://localhost:5086/spaceship/find?owner=78d3425e-a0b8-4148-8b62-968584b94575
+###
+GET https://localhost:5086/spaceship/all
+###
+POST https://localhost:5086/spaceship/move HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "70dd7ea1-2def-4b28-af01-7debe3cb194b",
+    "newRadius": 2,
+    "newAngle": 2
+}
+###
+GET https://localhost:5086/spaceship/has-active?owner=70dd7ea1-2def-4b28-af01-7debe3cb194b
+###
+DELETE https://localhost:5086/spaceship/clean

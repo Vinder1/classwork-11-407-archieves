@@ -1,0 +1,103 @@
+GET http://localhost:5085/
+###
+GET https://localhost:5086/
+###
+# POST http://localhost:5086/ HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "Aboba",
+#     "price": 1111,
+#     "type": "Person"
+# }
+###
+GET https://localhost:5086/stars/all/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFhNGJlNDQyLTBmNzItNGZkNS1hNWFkLWUwODM4MWVkZGQ5OCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJwYXNoYTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwicGxheWVyTmFtZSI6IlBhc2hhIiwiZXhwIjoxNzc0ODE5NTAzLCJpc3MiOiJBc3BOZXRBcHBBcGkiLCJhdWQiOiJBc3BOZXRBcHBDbGllbnRzIn0.3rWsz4Eqd3tiTcT5XCSB71mXL2nTLGXznrlc8Ie0rnY
+
+###
+GET https://localhost:5086/stars/nearby?radius=1&angleMilliradians=1721&range=2
+###
+GET https://localhost:5086/stars/find?radius=1&angleMilliradians=1721
+###
+POST https://localhost:5086/galaxy/regenerate/
+###
+GET https://localhost:5086/galaxy/
+###
+###
+###
+POST https://localhost:5086/auth/sign-in HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Pasha",
+    "login": "pasha1",
+    "password": "pasha1"
+}
+###
+POST https://localhost:5086/auth/log-in HTTP/1.1
+content-type: application/json
+
+{
+    "login": "pasha1",
+    "password": "pasha1"
+}
+###
+GET https://localhost:5086/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjFhNGJlNDQyLTBmNzItNGZkNS1hNWFkLWUwODM4MWVkZGQ5OCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJwYXNoYTEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwicGxheWVyTmFtZSI6IlBhc2hhIiwiZXhwIjoxNzc1MTYyOTczLCJpc3MiOiJBc3BOZXRBcHBBcGkiLCJhdWQiOiJBc3BOZXRBcHBDbGllbnRzIn0.4Aqxxf9P_fFGSk7yTe33cnQNqnI3ZT4w0aq9uUYiBfc
+###
+GET https://localhost:5086/me
+###
+GET https://localhost:5086/player?id=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+POST https://localhost:5086/player/new-name HTTP/1.1
+content-type: application/json
+
+{
+    "id": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792",
+    "name": "Pasha2"
+}
+###
+DELETE https://localhost:5086/player?id=78d3425e-a0b8-4148-8b62-968584b94575
+###
+GET https://localhost:5086/player/exists?id=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+###
+###
+POST https://localhost:5086/spaceship/create HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792"
+}
+###
+GET https://localhost:5086/spaceship/find?owner=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+GET https://localhost:5086/spaceship/all
+###
+POST https://localhost:5086/spaceship/move HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792",
+    "newRadius": 1,
+    "newAngle": 1721
+}
+###
+GET https://localhost:5086/spaceship/has-active?owner=f94f69c9-f3dd-49b6-98e9-5cb5bd724792
+###
+DELETE https://localhost:5086/spaceship/clean
+###
+###
+###
+GET https://localhost:5086/star-visit/exists-active?ownerId=f94f69c9-f3dd-49b6-98e9-5cb5bd724792&radius=1&angleMilliradians=1721
+###
+GET https://localhost:5086/star-visit/active?ownerId=f94f69c9-f3dd-49b6-98e9-5cb5bd724792&radius=1&angleMilliradians=1721
+###
+POST https://localhost:5086/star-visit/create HTTP/1.1
+content-type: application/json
+
+{
+    "ownerId": "f94f69c9-f3dd-49b6-98e9-5cb5bd724792",
+    "radius": 1,
+    "angleMilliradians": 1721
+}
